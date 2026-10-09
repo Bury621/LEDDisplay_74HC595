@@ -1,10 +1,15 @@
-#include "Reliable.h"
-#include "stdint.h"
+#include "LEDDisplay.h"
 
-//移植改这里就行，用来设置LEDDisplay_Dat/Clk/LE的电平
-static void Set_LE(uint8_t value)  { HAL_GPIO_WritePin(GPIOF, GPIO_PIN_2, value); }   // PF2 -> STCP (latch)
-static void Set_CLK(uint8_t value) { HAL_GPIO_WritePin(GPIOF, GPIO_PIN_1, value); }   // PF1 -> SHCP (shift clock)
-static void Set_Dat(uint8_t value) { HAL_GPIO_WritePin(GPIOF, GPIO_PIN_0, value); }   // PF0 -> DS  (serial data)
+//移植改这里就行，用来设置LEDDisplay_Dat/Clk/LE的电平,这里注释起来的是在HAL库里面的示例，根据不同平台自己改
+static void Set_LE(uint8_t value)  {
+    //HAL_GPIO_WritePin(GPIOF, GPIO_PIN_2, value); // PF2 -> STCP (latch)
+}
+static void Set_CLK(uint8_t value) {
+    //HAL_GPIO_WritePin(GPIOF, GPIO_PIN_1, value); // PF1 -> SHCP (shift clock)
+}
+static void Set_Dat(uint8_t value) {
+    //HAL_GPIO_WritePin(GPIOF, GPIO_PIN_0, value); // PF0 -> DS  (serial data)
+}
 
 //查表
 static const uint8_t LED_0F[] = {
